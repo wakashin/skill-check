@@ -1,4 +1,6 @@
 package q002;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Q002 並べ替える
@@ -20,6 +22,21 @@ package q002;
 20,渡辺
  */
 public class Q002 {
+    public static void main(String[] args) {
+    	//TreeMapは自動でソート
+        Map<Integer, String> map = new TreeMap<Integer, String>();
+        //カンマの前をkeyに、カンマの後ろをvalueに代入
+        for(int i = 0; i < dataList.length; i++) {
+          int index = dataList[i].indexOf(",");
+          int num = Integer.parseInt(dataList[i].substring(0,index));
+          String name = dataList[i].substring(index+1);
+          map.put(num, name);
+        }
+        //keyとvalueを出力
+        for(Map.Entry<Integer, String> entry : map.entrySet()) {
+        	System.out.println(entry.getKey() + "," + entry.getValue());
+        }
+    }
     /**
      * データ一覧
      */
@@ -46,4 +63,4 @@ public class Q002 {
             "9,清水"
     };
 }
-// 完成までの時間: xx時間 xx分
+// 完成までの時間: 3時間 0分
